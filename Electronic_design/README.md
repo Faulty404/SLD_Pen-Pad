@@ -1,4 +1,6 @@
-Schematic and PCB design for an ESP32-based smart pen circuit. The circuit uses an LM358 op-amp to amplify signals from a microphone and includes battery charging capabilities using the TP4057 charger IC.
+# Schematic and PCB design for an ESP32-based smart pen circuit. 
+
+The circuit uses an LM358 op-amp to amplify signals from a microphone and includes battery charging capabilities using the TP4057 charger IC.
 
 ESP32-D0WD: The main microcontroller chip used for processing and wireless communication.
 
