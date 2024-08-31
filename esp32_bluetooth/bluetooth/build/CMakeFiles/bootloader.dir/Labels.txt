@@ -1,0 +1,13 @@
+# Target labels
+ bootloader
+# Source files and their labels
+/home/anish/Projects/esp32/bluetooth/build/CMakeFiles/bootloader
+/home/anish/Projects/esp32/bluetooth/build/CMakeFiles/bootloader.rule
+/home/anish/Projects/esp32/bluetooth/build/CMakeFiles/bootloader-complete.rule
+/home/anish/Projects/esp32/bluetooth/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+/home/anish/Projects/esp32/bluetooth/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+/home/anish/Projects/esp32/bluetooth/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+/home/anish/Projects/esp32/bluetooth/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+/home/anish/Projects/esp32/bluetooth/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+/home/anish/Projects/esp32/bluetooth/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+/home/anish/Projects/esp32/bluetooth/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule
