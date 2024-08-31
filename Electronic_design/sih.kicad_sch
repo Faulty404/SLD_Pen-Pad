@@ -2863,12 +2863,6 @@
 		)
 	)
 	(junction
-		(at 257.81 43.18)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "015935a3-a1fb-4860-b169-18fe1ba87397")
-	)
-	(junction
 		(at 265.43 69.85)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2917,12 +2911,6 @@
 		(uuid "67a9c9df-8ee7-41ff-a8cf-c69dd49741cb")
 	)
 	(junction
-		(at 257.81 35.56)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "79b2797f-c633-4b60-b106-f691ffe96682")
-	)
-	(junction
 		(at 109.22 137.16)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2933,6 +2921,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "8033fa98-4e88-4fb6-a8d1-bb7df4d09538")
+	)
+	(junction
+		(at 127 45.72)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "8174fb9f-31fd-4b22-bd4f-942ae7c703f6")
 	)
 	(junction
 		(at 107.95 48.26)
@@ -2981,12 +2975,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "ed37882c-09b2-47e2-b357-ff6a1314624a")
-	)
-	(junction
-		(at 107.95 139.7)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "fdfed39d-8c44-4f3e-bb1b-49bd9f490e57")
 	)
 	(wire
 		(pts
@@ -3210,13 +3198,13 @@
 	)
 	(wire
 		(pts
-			(xy 257.81 43.18) (xy 257.81 35.56)
+			(xy 127 45.72) (xy 127 48.26)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "471909ab-c23f-4a6f-9f13-16bcc4f94cca")
+		(uuid "45a997da-b442-44c8-be80-91cb2322441a")
 	)
 	(wire
 		(pts
@@ -3227,6 +3215,16 @@
 			(type default)
 		)
 		(uuid "48f81899-a1c9-4cee-8304-6fbbdc3f5024")
+	)
+	(wire
+		(pts
+			(xy 193.04 69.85) (xy 182.88 69.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4bda26f0-8a1b-49f6-8803-4acc394027df")
 	)
 	(wire
 		(pts
@@ -3287,16 +3285,6 @@
 			(type default)
 		)
 		(uuid "59a0a2a4-989f-40b9-9f44-6b76ca7015ef")
-	)
-	(wire
-		(pts
-			(xy 193.04 68.58) (xy 193.04 69.85)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5a3f25af-52c7-47e1-a49e-59c2569c4bcd")
 	)
 	(wire
 		(pts
@@ -3580,6 +3568,16 @@
 	)
 	(wire
 		(pts
+			(xy 182.88 45.72) (xy 127 45.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "87c2e4d7-b852-4c3e-9066-a631ddef4474")
+	)
+	(wire
+		(pts
 			(xy 158.75 137.16) (xy 140.97 137.16)
 		)
 		(stroke
@@ -3710,7 +3708,7 @@
 	)
 	(wire
 		(pts
-			(xy 127 38.1) (xy 127 48.26)
+			(xy 127 38.1) (xy 127 45.72)
 		)
 		(stroke
 			(width 0)
@@ -3830,16 +3828,6 @@
 	)
 	(wire
 		(pts
-			(xy 107.95 138.43) (xy 107.95 139.7)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d634d761-c321-43d3-a7ff-d35c2a3ebb04")
-	)
-	(wire
-		(pts
 			(xy 158.75 67.31) (xy 158.75 90.17)
 		)
 		(stroke
@@ -3950,6 +3938,16 @@
 	)
 	(wire
 		(pts
+			(xy 182.88 69.85) (xy 182.88 45.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ec8ab572-e114-4a7e-ac6f-b6d574506097")
+	)
+	(wire
+		(pts
 			(xy 119.38 64.77) (xy 109.22 64.77)
 		)
 		(stroke
@@ -4051,72 +4049,6 @@
 			(project "sih"
 				(path "/30865b9b-37c5-4f37-aecd-20f80092d846"
 					(reference "C6")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:VCC")
-		(at 193.04 68.58 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "1bdc1a2a-a850-44dc-adcd-66a96d373814")
-		(property "Reference" "#PWR04"
-			(at 193.04 72.39 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "3.3V"
-			(at 193.04 63.5 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 193.04 68.58 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 193.04 68.58 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"VCC\""
-			(at 193.04 68.58 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "2ff1d243-1c4e-4e71-849f-21bbbada6d6c")
-		)
-		(instances
-			(project "sih"
-				(path "/30865b9b-37c5-4f37-aecd-20f80092d846"
-					(reference "#PWR04")
 					(unit 1)
 				)
 			)
@@ -4276,7 +4208,7 @@
 				)
 			)
 		)
-		(property "Value" "R_Potentiometer"
+		(property "Value" "10 K"
 			(at 228.6 41.91 90)
 			(effects
 				(font
@@ -4425,7 +4357,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Package_SO:SOIC-8-1EP_3.9x4.9mm_P1.27mm_EP2.29x3mm"
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-6"
 			(at 140.97 76.2 0)
 			(effects
 				(font
@@ -5061,7 +4993,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Package_DIP:DIP-8-16_W7.62mm"
+		(property "Footprint" "Package_SO:SOIC-8-1EP_3.9x4.9mm_P1.27mm_EP2.29x3mm"
 			(at 255.27 69.85 0)
 			(effects
 				(font
@@ -5419,7 +5351,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Battery:BatteryHolder_Keystone_103_1x20mm"
+		(property "Footprint" "Battery:BatteryHolder_Keystone_2998_1x6.8mm"
 			(at 158.75 60.706 90)
 			(effects
 				(font
@@ -5603,10 +5535,9 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "fa221781-c6e3-41d0-b39f-6a21389198f9")
 		(property "Reference" "Y1"
-			(at 26.67 71.1199 90)
+			(at 16.256 75.184 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5615,7 +5546,7 @@
 			)
 		)
 		(property "Value" "40MHz"
-			(at 26.67 73.6599 90)
+			(at 16.256 77.724 90)
 			(effects
 				(font
 					(size 1.27 1.27)
