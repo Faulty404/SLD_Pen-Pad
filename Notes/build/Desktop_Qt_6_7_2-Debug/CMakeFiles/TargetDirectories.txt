@@ -1,0 +1,9 @@
+/home/anish/Notes/build/Desktop_Qt_6_7_2-Debug/CMakeFiles/Notes.dir
+/home/anish/Notes/build/Desktop_Qt_6_7_2-Debug/CMakeFiles/edit_cache.dir
+/home/anish/Notes/build/Desktop_Qt_6_7_2-Debug/CMakeFiles/rebuild_cache.dir
+/home/anish/Notes/build/Desktop_Qt_6_7_2-Debug/CMakeFiles/list_install_components.dir
+/home/anish/Notes/build/Desktop_Qt_6_7_2-Debug/CMakeFiles/install.dir
+/home/anish/Notes/build/Desktop_Qt_6_7_2-Debug/CMakeFiles/install/local.dir
+/home/anish/Notes/build/Desktop_Qt_6_7_2-Debug/CMakeFiles/install/strip.dir
+/home/anish/Notes/build/Desktop_Qt_6_7_2-Debug/CMakeFiles/Notes_autogen_timestamp_deps.dir
+/home/anish/Notes/build/Desktop_Qt_6_7_2-Debug/CMakeFiles/Notes_autogen.dir

@@ -1,0 +1,79 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-5b435a7c3c404ab467e8.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Notes",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Notes::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Notes-Debug-4c8aeaed49218ecd6f50.json",
+					"name" : "Notes",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Notes_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Notes_autogen-Debug-040f9722cdb170f5f1f0.json",
+					"name" : "Notes_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Notes_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Notes_autogen_timestamp_deps-Debug-b64cbfa0f3839d196add.json",
+					"name" : "Notes_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/anish/Notes/build/Desktop_Qt_6_7_2-Debug",
+		"source" : "/home/anish/Notes"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}
