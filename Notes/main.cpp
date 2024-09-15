@@ -18,28 +18,33 @@
 #include <QTextTableFormat>
 #include <QPainter>
 #include <QWidgetAction>
-#include <QPainter>
 #include <QPen>
 
-class NotesApp : public QMainWindow {
+// Custom QTextEdit class
+class CustomTextEdit : public QTextEdit {
     Q_OBJECT
 
 public:
-    NotesApp(QWidget *parent = nullptr) : QMainWindow(parent), ruledPage(false), gridPage(false), lightMode(true) {
-        textEdit = new QTextEdit(this);
-        setCentralWidget(textEdit);
+    CustomTextEdit(QWidget *parent = nullptr) : QTextEdit(parent), ruledPage(false), gridPage(false) {}
 
-        createMenus();
-        createToolbar();
+    bool isRuledPageEnabled() const { return ruledPage; }
+    bool isGridPageEnabled() const { return gridPage; }
 
-        setWindowTitle("Notes App");
-        resize(800, 600);
-        applyLightMode();
+    void setRuledPage(bool enabled) {
+        ruledPage = enabled;
+        gridPage = false; // Turn off grid if ruled is selected
+        viewport()->update(); // Trigger repaint
+    }
+
+    void setGridPage(bool enabled) {
+        gridPage = enabled;
+        ruledPage = false; // Turn off ruled if grid is selected
+        viewport()->update(); // Trigger repaint
     }
 
 protected:
     void paintEvent(QPaintEvent *event) override {
-        QMainWindow::paintEvent(event);
+        QTextEdit::paintEvent(event); // Call the base class's paintEvent
 
         if (ruledPage || gridPage) {
             QPainter painter(viewport()); // Use viewport for custom painting on the textEdit
@@ -48,19 +53,41 @@ protected:
 
             if (ruledPage) {
                 int lineHeight = 20; // Space between lines
-                for (int y = lineHeight; y < height(); y += lineHeight) {
-                    painter.drawLine(0, y, width(), y);
+                for (int y = lineHeight; y < viewport()->height(); y += lineHeight) {
+                    painter.drawLine(0, y, viewport()->width(), y);
                 }
             } else if (gridPage) {
                 int gridSize = 20; // Space for grid cells
-                for (int y = gridSize; y < height(); y += gridSize) {
-                    painter.drawLine(0, y, width(), y); // Horizontal lines
+                for (int y = gridSize; y < viewport()->height(); y += gridSize) {
+                    painter.drawLine(0, y, viewport()->width(), y); // Horizontal lines
                 }
-                for (int x = gridSize; x < width(); x += gridSize) {
-                    painter.drawLine(x, 0, x, height()); // Vertical lines
+                for (int x = gridSize; x < viewport()->width(); x += gridSize) {
+                    painter.drawLine(x, 0, x, viewport()->height()); // Vertical lines
                 }
             }
         }
+    }
+
+private:
+    bool ruledPage;
+    bool gridPage;
+};
+
+// Main NotesApp class
+class NotesApp : public QMainWindow {
+    Q_OBJECT
+
+public:
+    NotesApp(QWidget *parent = nullptr) : QMainWindow(parent), lightMode(true) {
+        textEdit = new CustomTextEdit(this);
+        setCentralWidget(textEdit);
+
+        createMenus();
+        createToolbar();
+
+        setWindowTitle("Notes App");
+        resize(800, 600);
+        applyLightMode();
     }
 
 private slots:
@@ -171,15 +198,11 @@ private slots:
     }
 
     void toggleRuledPage() {
-        ruledPage = !ruledPage;
-        gridPage = false; // Turn off grid if ruled is selected
-        viewport()->update(); // Trigger repaint on the viewport
+        textEdit->setRuledPage(!textEdit->isRuledPageEnabled());
     }
 
     void toggleGridPage() {
-        gridPage = !gridPage;
-        ruledPage = false; // Turn off ruled if grid is selected
-        viewport()->update(); // Trigger repaint on the viewport
+        textEdit->setGridPage(!textEdit->isGridPageEnabled());
     }
 
     void toggleLightMode() {
@@ -192,9 +215,7 @@ private slots:
     }
 
 private:
-    QTextEdit *textEdit;
-    bool ruledPage;
-    bool gridPage;
+    CustomTextEdit *textEdit;
     bool lightMode;
 
     void createMenus() {
@@ -257,27 +278,23 @@ private:
         connect(underlineAction, &QAction::triggered, this, &NotesApp::setUnderline);
         toolbar->addAction(underlineAction);
 
-        QAction *textColorAction = new QAction("Text Color", this);
-        textColorAction->setIcon(QIcon::fromTheme("format-text-color"));
-        connect(textColorAction, &QAction::triggered, this, &NotesApp::setTextColor);
-        toolbar->addAction(textColorAction);
+        QAction *colorAction = new QAction("Text Color", this);
+        connect(colorAction, &QAction::triggered, this, &NotesApp::setTextColor);
+        toolbar->addAction(colorAction);
 
         QAction *fontAction = new QAction("Font", this);
-        fontAction->setIcon(QIcon::fromTheme("preferences-desktop-font"));
         connect(fontAction, &QAction::triggered, this, &NotesApp::setFont);
         toolbar->addAction(fontAction);
 
-        toolbar->addSeparator();
+        QAction *ruledAction = new QAction("Ruled Page", this);
+        connect(ruledAction, &QAction::triggered, this, &NotesApp::toggleRuledPage);
+        toolbar->addAction(ruledAction);
 
-        QAction *ruledPageAction = new QAction("Ruled Page", this);
-        connect(ruledPageAction, &QAction::triggered, this, &NotesApp::toggleRuledPage);
-        toolbar->addAction(ruledPageAction);
+        QAction *gridAction = new QAction("Grid Page", this);
+        connect(gridAction, &QAction::triggered, this, &NotesApp::toggleGridPage);
+        toolbar->addAction(gridAction);
 
-        QAction *gridPageAction = new QAction("Grid Page", this);
-        connect(gridPageAction, &QAction::triggered, this, &NotesApp::toggleGridPage);
-        toolbar->addAction(gridPageAction);
-
-        QAction *lightModeAction = new QAction("Toggle Light/Dark Mode", this);
+        QAction *lightModeAction = new QAction("Light/Dark Mode", this);
         connect(lightModeAction, &QAction::triggered, this, &NotesApp::toggleLightMode);
         toolbar->addAction(lightModeAction);
     }
@@ -298,9 +315,6 @@ private:
 
     void applyFormat(const QTextCharFormat &format) {
         QTextCursor cursor = textEdit->textCursor();
-        if (!cursor.hasSelection()) {
-            cursor.select(QTextCursor::WordUnderCursor);
-        }
         cursor.mergeCharFormat(format);
         textEdit->mergeCurrentCharFormat(format);
     }

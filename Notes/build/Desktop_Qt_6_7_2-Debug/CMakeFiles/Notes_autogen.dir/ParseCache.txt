@@ -412,8 +412,6 @@
  mdp:/usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h
  mdp:/usr/lib/gcc/x86_64-linux-gnu/13/include/stdbool.h
  mdp:/usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h
-/home/anish/Notes/mainwindow.cpp
- uic:./ui_mainwindow.h
 /home/anish/Notes/main.cpp
  mmc:Q_OBJECT
  mid:main.moc
@@ -943,3 +941,5 @@
  mdp:/usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h
  mdp:/usr/lib/gcc/x86_64-linux-gnu/13/include/stdbool.h
  mdp:/usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h
+/home/anish/Notes/mainwindow.cpp
+ uic:./ui_mainwindow.h
